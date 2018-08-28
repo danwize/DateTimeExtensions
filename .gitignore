@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/DateTimeExtensions
+/DateTimeExtensions/bin/Debug/netcoreapp2.1
+/DateTimeExtensions/obj
+/DateTimeExtensionsTests/bin/Debug/netcoreapp2.1
+/DateTimeExtensionsTests/obj/Debug/netcoreapp2.1
+/DateTimeExtensionsTests/obj
