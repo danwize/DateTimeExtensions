@@ -3,6 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Company>Danwize.com</Company>
+    <PackageId>DateTimeConversionExtensions</PackageId>
+    <Authors>Dan Davis</Authors>
+    <PackageProjectUrl>https://github.com/danwize/DateTimeExtensions</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/danwize/DateTimeExtensions.git</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <FileVersion>1.0.0.1</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

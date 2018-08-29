@@ -141,7 +141,7 @@ namespace DateTimeExtensions
 
 		public static DateTime? ToUniversalTime(this DateTime? localTime, string localTimeZoneName)
 		{
-			return localTime?.Local(localTimeZoneName);
+			return localTime?.ToUniversalTime(localTimeZoneName);
 		}
 
 		public static DateTime ServerTimeToLocalTime(this DateTime serverTime, string timeZoneId)

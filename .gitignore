@@ -8,3 +8,5 @@
 /DateTimeExtensionsTests/bin/Debug/netcoreapp2.1
 /DateTimeExtensionsTests/obj/Debug/netcoreapp2.1
 /DateTimeExtensionsTests/obj
+/DateTimeExtensions/bin/Release
+/DateTimeExtensionsTests/bin/Release/netcoreapp2.1
