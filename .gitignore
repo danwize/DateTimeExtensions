@@ -10,3 +10,7 @@
 /DateTimeExtensionsTests/obj
 /DateTimeExtensions/bin/Release
 /DateTimeExtensionsTests/bin/Release/netcoreapp2.1
+/DateTimeExtensions/bin/Debug
+/DateTimeExtensionsTests/bin/Debug
+/obj
+/packages
