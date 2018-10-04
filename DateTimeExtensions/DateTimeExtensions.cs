@@ -227,6 +227,24 @@ namespace DateTimeExtensions
             return DateTime.Parse(localTime).LocalTimeToServerTime(serverTimeZone).ToString(formatToReturn);
         }
 
+        /// <summary>
+        /// Calculates the offset from UTC of the specified date where date is of the time zone specified in dateTimeZone
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="dateTimeZone"></param>
+        /// <returns></returns>
+        public static TimeSpan GetUtcOffset(this DateTime date, SystemTimeZone dateTimeZone)
+        {
+            return GetUtcOffset(date, dateTimeZone.ToString());
+        }
+
+        public static TimeSpan GetUtcOffset(this DateTime date, string dateTimeZoneName)
+        {
+            var tzi = TimeZoneInfo.FindSystemTimeZoneById(dateTimeZoneName);
+            return tzi.GetUtcOffset(date);
+        }
+
+
         public static DateTime AddBusinessDays(this DateTime date, [Range(uint.MinValue, 365)]uint daysToAdd)
         {
             if (daysToAdd > 365)
@@ -236,6 +254,7 @@ namespace DateTimeExtensions
             var holidays = DateSystem.GetPublicHoliday(CountryCode.US, date, date.AddYears(1)).Select(x => x.Date);
             return AddBusinessDays(date, daysToAdd, holidays);
         }
+
 
 
         public static DateTime AddBusinessDays(this DateTime date, uint daysToAdd, IEnumerable<DateTime> holidays)
