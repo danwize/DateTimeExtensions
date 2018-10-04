@@ -3,15 +3,15 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net461;</TargetFrameworks>
     <PackageId>DateTimeConversionExtensions</PackageId>
-    <Version>1.0.0.4</Version>
+    <Version>1.0.0.5</Version>
     <Authors>Dan Davis</Authors>
     <Company>Danwize.com</Company>
     <Product>DateTimeExtension</Product>
-    <AssemblyVersion>1.0.0.4</AssemblyVersion>
-    <FileVersion>1.0.0.4</FileVersion>
+    <AssemblyVersion>1.0.0.5</AssemblyVersion>
+    <FileVersion>1.0.0.5</FileVersion>
     <RepositoryUrl>https://github.com/danwize/DateTimeExtensions.git</RepositoryUrl>
     <PackageProjectUrl>https://github.com/danwize/DateTimeExtensions</PackageProjectUrl>
-    <PackageReleaseNotes>Added a new method to calculate the UTC offset of a given date time.</PackageReleaseNotes>
+    <PackageReleaseNotes>Removed an unnecessary cast on UtcOffsetInteger</PackageReleaseNotes>
     <Description>A library of extension mehods to help convert times between time zones, add business days to a date time etc.
 Hat tip no Nager Date for calculating holidays and weekends for adding business days.
 Date time conversions use .Net's System.TimeZoneInfo.</Description>

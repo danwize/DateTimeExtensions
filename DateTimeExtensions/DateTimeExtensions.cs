@@ -246,7 +246,7 @@ namespace DateTimeExtensions
 
         public static int GetUtcOffsetInteger(this DateTime date, string dateTimeZoneName)
         {
-            return (int)GetUtcOffset(date, dateTimeZoneName).TotalHours;
+            return GetUtcOffset(date, dateTimeZoneName).Hours;
         }
 
         public static int GetUtcOffsetInteger(this DateTime date, SystemTimeZone dateTimeZone)
