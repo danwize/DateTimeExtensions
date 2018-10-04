@@ -244,6 +244,16 @@ namespace DateTimeExtensions
             return tzi.GetUtcOffset(date);
         }
 
+        public static int GetUtcOffsetInteger(this DateTime date, string dateTimeZoneName)
+        {
+            return (int)GetUtcOffset(date, dateTimeZoneName).TotalHours;
+        }
+
+        public static int GetUtcOffsetInteger(this DateTime date, SystemTimeZone dateTimeZone)
+        {
+            return GetUtcOffsetInteger(date, dateTimeZone.ToString());
+        }
+
 
         public static DateTime AddBusinessDays(this DateTime date, [Range(uint.MinValue, 365)]uint daysToAdd)
         {
