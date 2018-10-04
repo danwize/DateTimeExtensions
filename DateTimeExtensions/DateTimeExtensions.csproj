@@ -3,14 +3,18 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net461;</TargetFrameworks>
     <PackageId>DateTimeConversionExtensions</PackageId>
-    <Version>1.0.0.2</Version>
+    <Version>1.0.0.3</Version>
     <Authors>Dan Davis</Authors>
     <Company>Danwize.com</Company>
     <Product>DateTimeExtension</Product>
-    <AssemblyVersion>1.0.0.2</AssemblyVersion>
-    <FileVersion>1.0.0.2</FileVersion>
+    <AssemblyVersion>1.0.0.3</AssemblyVersion>
+    <FileVersion>1.0.0.3</FileVersion>
     <RepositoryUrl>https://github.com/danwize/DateTimeExtensions.git</RepositoryUrl>
     <PackageProjectUrl>https://github.com/danwize/DateTimeExtensions</PackageProjectUrl>
+    <PackageReleaseNotes>Added typesafe list of time zones and overloads to use them.  Fixed a bug with String ServerToLocalTime and String LocalToServerTime.</PackageReleaseNotes>
+    <Description>A library of extension mehods to help convert times between time zones, add business days to a date time etc.
+Hat tip no Nager Date for calculating holidays and weekends for adding business days.
+Date time conversions use .Net's System.TimeZoneInfo.</Description>
   </PropertyGroup>
 
   <ItemGroup>
