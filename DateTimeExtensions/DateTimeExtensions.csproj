@@ -3,18 +3,23 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net461;</TargetFrameworks>
     <PackageId>DateTimeConversionExtensions</PackageId>
-    <Version>1.1.0.5</Version>
+    <Version>1.1.0.0</Version>
     <Authors>Dan Davis</Authors>
     <Company>Danwize.com</Company>
     <Product>DateTimeExtension</Product>
-    <AssemblyVersion>1.1.0.5</AssemblyVersion>
-    <FileVersion>1.1.0.5</FileVersion>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
     <RepositoryUrl>https://github.com/danwize/DateTimeExtensions.git</RepositoryUrl>
     <PackageProjectUrl>https://github.com/danwize/DateTimeExtensions</PackageProjectUrl>
-    <PackageReleaseNotes>Removed an unnecessary cast on UtcOffsetInteger</PackageReleaseNotes>
+    <PackageReleaseNotes>Add support for Linux</PackageReleaseNotes>
     <Description>A library of extension mehods to help convert times between time zones, add business days to a date time etc.
 Hat tip no Nager Date for calculating holidays and weekends for adding business days.
 Date time conversions use .Net's System.TimeZoneInfo.</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>datetime,convert dates,cross platform,linux,windows</PackageTags>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
