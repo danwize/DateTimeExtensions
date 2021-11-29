@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Nager.Date;
+using TimeZoneConverter;
 
 namespace DateTimeExtensions
 {
@@ -124,7 +125,7 @@ namespace DateTimeExtensions
         /// <returns></returns>
         public static DateTime Local(this DateTime utcDate, string timeZoneName)
         {
-            var tzi = TimeZoneInfo.FindSystemTimeZoneById(timeZoneName);
+            var tzi = TZConvert.GetTimeZoneInfo(timeZoneName);
             return TimeZoneInfo.ConvertTimeFromUtc(utcDate, tzi);
         }
 
@@ -151,7 +152,7 @@ namespace DateTimeExtensions
 
         public static DateTime ToUniversalTime(this DateTime localTime, string localTimeZoneName)
         {
-            var localTzi = TimeZoneInfo.FindSystemTimeZoneById(localTimeZoneName);
+            var localTzi = TZConvert.GetTimeZoneInfo(localTimeZoneName);
             return TimeZoneInfo.ConvertTimeToUtc(localTime, localTzi);
         }
 
@@ -240,7 +241,7 @@ namespace DateTimeExtensions
 
         public static TimeSpan GetUtcOffset(this DateTime date, string dateTimeZoneName)
         {
-            var tzi = TimeZoneInfo.FindSystemTimeZoneById(dateTimeZoneName);
+            var tzi = TZConvert.GetTimeZoneInfo(dateTimeZoneName);
             return tzi.GetUtcOffset(date);
         }
 

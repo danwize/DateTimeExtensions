@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using DateTimeExtensions;
 using NUnit.Framework;
+using TimeZoneConverter;
 
 namespace DateTimeExtensionsTests
 {
@@ -313,7 +314,7 @@ namespace DateTimeExtensionsTests
 		public void ToUniversalTime_WorksWithNullableDateTime()
 		{
 			DateTime? utcTime = DateTime.UtcNow;
-			var mountainTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Mountain Standard Time");
+			var mountainTimeZone = TZConvert.GetTimeZoneInfo("Mountain Standard Time");
 			var mountainTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime.Value, mountainTimeZone);
 			Assert.AreEqual(utcTime, mountainTime.ToUniversalTime("Mountain Standard Time"));
 		}
@@ -428,7 +429,7 @@ namespace DateTimeExtensionsTests
 		public void ServerToLocalTime_Test(string timeZoneId)
 		{
 			var thisComputerTimeZone = TimeZone.CurrentTimeZone;
-			var specifiedTimeZone = TimeZoneInfo.FindSystemTimeZoneById(timeZoneId);
+			var specifiedTimeZone = TZConvert.GetTimeZoneInfo(timeZoneId);
 			var testDateTime = new DateTime(2006, 6, 12, 11, 0, 0);
 			var pcUtcOffset = thisComputerTimeZone.GetUtcOffset(testDateTime);
 			var timeZoneOffset = specifiedTimeZone.GetUtcOffset(testDateTime);
@@ -548,7 +549,7 @@ namespace DateTimeExtensionsTests
 		public void LocalToServerTime_Test(string timeZoneId)
 		{
 			var thisComputerTimeZone = TimeZone.CurrentTimeZone;
-			var specifiedTimeZone = TimeZoneInfo.FindSystemTimeZoneById(timeZoneId);
+			var specifiedTimeZone = TZConvert.GetTimeZoneInfo(timeZoneId);
 			var testDateTime = new DateTime(2006, 6, 12, 11, 0, 0);
 			var pcUtcOffset = thisComputerTimeZone.GetUtcOffset(testDateTime);
 			var timeZoneOffset = specifiedTimeZone.GetUtcOffset(testDateTime);

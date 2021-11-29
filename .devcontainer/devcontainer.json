@@ -1,0 +1,18 @@
+
+{
+  "build": {
+	"dockerfile": "Dockerfile"
+  },
+  "extensions": [
+	"dbaeumer.vscode-eslint",
+	"ms-dotnettools.csharp",
+	"josefpihrt-vscode.roslynator",
+	"formulahendry.dotnet-test-explorer",
+	"fernandoescolar.vscode-solution-explorer",
+	"eamodio.gitlens",
+	"ms-vscode.powershell",
+	"shd101wyy.markdown-preview-enhanced",
+	"formulahendry.dotnet-test-explorer"
+
+  ],
+}

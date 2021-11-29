@@ -12,5 +12,6 @@
 /DateTimeExtensionsTests/bin/Release/netcoreapp2.1
 /DateTimeExtensions/bin/Debug
 /DateTimeExtensionsTests/bin/Debug
+/DateTimeExtensionsTests/bin
 /obj
 /packages
