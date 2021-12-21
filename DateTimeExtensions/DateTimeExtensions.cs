@@ -150,9 +150,13 @@ namespace DateTimeExtensions
             return utcDate?.Local(localTimeZone);
         }
 
-        public static DateTime ToUniversalTime(this DateTime localTime, string localTimeZoneName)
+        public static DateTime ToUniversalTime(this DateTime localTime, string localTimeZoneName, DateTimeKind? localTimeType = null)
         {
             var localTzi = TZConvert.GetTimeZoneInfo(localTimeZoneName);
+            if (localTimeType != null)
+            {
+                localTime = DateTime.SpecifyKind(localTime, DateTimeKind.Unspecified);
+            }
             return TimeZoneInfo.ConvertTimeToUtc(localTime, localTzi);
         }
 
@@ -226,6 +230,25 @@ namespace DateTimeExtensions
         public static string LocalTimeToServerTime(this string localTime, SystemTimeZone serverTimeZone, string formatToReturn = "M/dd/yyyy h:mm tt")
         {
             return DateTime.Parse(localTime).LocalTimeToServerTime(serverTimeZone).ToString(formatToReturn);
+        }
+
+        public static DateTime ToNewTimeZone(this DateTime @this, SystemTimeZone fromTimeZone, SystemTimeZone toTimeZone)
+        {
+            return @this.ToNewTimeZone(fromTimeZone.ToString(), toTimeZone.ToString());
+        }
+
+        public static DateTime ToNewTimeZone(this DateTime @this, string fromTimeZone, string toTimeZone)
+        {
+            // var serverTimeZone = TimeZone.CurrentTimeZone; //TODO:  TimeZone is obsolete.  Look into using the new class.
+            // var dateTimeInUtc = serverTimeZone.ToUniversalTime(serverTime);
+            var universalTime = @this.ToUniversalTime(fromTimeZone, DateTimeKind.Unspecified);
+            var destinationTimeZone = TZConvert.GetTimeZoneInfo(toTimeZone);
+            return TimeZoneInfo.ConvertTime(universalTime, destinationTimeZone);
+        }
+
+        public static string ToNewTimeZone(this string @this, string fromTimeZone, string toTimeZone, string formatToReturn = "M/dd/yyyy h:mm tt")
+        {
+            return DateTime.Parse(@this).ToNewTimeZone(fromTimeZone, toTimeZone).ToString(formatToReturn);
         }
 
         /// <summary>

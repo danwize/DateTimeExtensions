@@ -559,6 +559,61 @@ namespace DateTimeExtensionsTests
 			Assert.AreEqual(expectedTimeDifference, expectedTime - testDateTime);
 		}
 
+
+		[TestCase("West Pacific Standard Time", "Tonga Standard Time")]
+        [TestCase("Tasmania Standard Time", "Line Islands Standard Time")]
+        [TestCase("Magadan Standard Time", "Kamchatka Standard Time")]
+        [TestCase("Vladivostok Standard Time", "Russia Time Zone 10")]
+        [TestCase("Russia Time Zone 10", "UTC+12")]
+        [TestCase("Central Pacific Standard Time", "Russia Time Zone 11")]
+        [TestCase("Russia Time Zone 11", "Fiji Standard Time")]
+        [TestCase("New Zealand Standard Time", "Kamchatka Standard Time")]
+        [TestCase("UTC+12", "West Pacific Standard Time")]
+        [TestCase("Fiji Standard Time", "Russia Time Zone 10")]
+        [TestCase("Kamchatka Standard Time", "UTC+12")]
+        [TestCase("Tonga Standard Time", "Vladivostok Standard Time")]
+        [TestCase("Samoa Standard Time", "Central Pacific Standard Time")]
+        [TestCase("Line Islands Standard Time", "West Pacific Standard Time")]
+		public void ToNewTimeZone_Test(string fromTimeZoneId, string toTimeZoneId)
+        {
+            var toTimezoneId = TZConvert.GetTimeZoneInfo(toTimeZoneId);
+            var fromTimeZone = TZConvert.GetTimeZoneInfo(fromTimeZoneId);
+            var testDateTime = new DateTime(2006, 6, 12, 11, 0, 0);
+            var pcUtcOffset = toTimezoneId.GetUtcOffset(testDateTime);
+            var timeZoneOffset = fromTimeZone.GetUtcOffset(testDateTime);
+            var expectedTimeDifference = pcUtcOffset - timeZoneOffset;
+
+            var resultantTime = testDateTime.ToNewTimeZone(fromTimeZoneId, toTimeZoneId);
+            Assert.AreEqual(expectedTimeDifference, resultantTime - testDateTime);
+		}
+
+		[TestCase("West Pacific Standard Time", "Tonga Standard Time")]
+        [TestCase("Tasmania Standard Time", "Line Islands Standard Time")]
+        [TestCase("Magadan Standard Time", "Kamchatka Standard Time")]
+        [TestCase("Vladivostok Standard Time", "Russia Time Zone 10")]
+        [TestCase("Russia Time Zone 10", "UTC+12")]
+        [TestCase("Central Pacific Standard Time", "Russia Time Zone 11")]
+        [TestCase("Russia Time Zone 11", "Fiji Standard Time")]
+        [TestCase("New Zealand Standard Time", "Kamchatka Standard Time")]
+        [TestCase("UTC+12", "West Pacific Standard Time")]
+        [TestCase("Fiji Standard Time", "Russia Time Zone 10")]
+        [TestCase("Kamchatka Standard Time", "UTC+12")]
+        [TestCase("Tonga Standard Time", "Vladivostok Standard Time")]
+        [TestCase("Samoa Standard Time", "Central Pacific Standard Time")]
+        [TestCase("Line Islands Standard Time", "West Pacific Standard Time")]
+		public void ToNewTimeZone_InputUtcTime_Test(string fromTimeZoneId, string toTimeZoneId)
+        {
+            var toTimezoneId = TZConvert.GetTimeZoneInfo(toTimeZoneId);
+            var fromTimeZone = TZConvert.GetTimeZoneInfo(fromTimeZoneId);
+            var testDateTime = DateTime.UtcNow;
+            var pcUtcOffset = toTimezoneId.GetUtcOffset(testDateTime);
+            var timeZoneOffset = fromTimeZone.GetUtcOffset(testDateTime);
+            var expectedTimeDifference = pcUtcOffset - timeZoneOffset;
+
+            var resultantTime = testDateTime.ToNewTimeZone(fromTimeZoneId, toTimeZoneId);
+            Assert.AreEqual(expectedTimeDifference, resultantTime - testDateTime);
+        }
+
 		[TestCase("2018/01/01", 1U, "2018/01/02")]
 		[TestCase("2017/12/31", 1U, "2018/01/02")]
 		[TestCase("2018/02/16", 1U, "2018/02/20")]
